@@ -1,7 +1,10 @@
 SampleAppTest::Application.routes.draw do
+  root to: 'static_pages#home'
+  match "signup" => 'users#new', as: :signup
   match "home" => 'static_pages#home', as: :home
   match "about" => 'static_pages#about', as: :about
   match "help" => 'static_pages#help', as: :help
+  match "contact" => 'static_pages#contact', as: :contact
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <% provide(:title, 'Home Page') %>  	
-  </head>
-  <body>
-    <h1>sample app</h1>
-    <p>
-      This is the home page for the
-      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-      sample application.
-    </p>
-  </body>
-</html>
+<% provide(:title, 'Home Page') %>  	
+<div class="center hero-unit">
+
+  <h1>Welcome to Rakshit App</h1>
+  <%= link_to "Sign Up Now!", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>

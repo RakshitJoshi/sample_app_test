@@ -8,46 +8,40 @@ describe "StaticPages", js: true do
 #      response.status.should be(200)
 #    end
 #  end
-
+  subject { page }
   describe "Home page" do
-
-    it "should have the h1 'Sample App'" do
-      visit home_path
-      page.should have_selector('h1', :text => 'sample app')
-    end
-
-    it "should have the base title" do
-      visit home_path
-      page.should have_selector('title', text: "Welcome to Rakshit")
-    end
-
-    it "should have the custom page title" do
-      visit home_path
-      page.should have_selector('title', :text => "| Home Page")
-    end
+    before { visit root_path }
+    it { should have_selector('h1', :text => 'Welcome to Rakshit App') }
+  
+    it { should have_selector('title', text: full_title('')) }
+    
+    it { should have_selector('title', :text => "| Home Page") }
   end
 
   describe "Help Page" do
-  	it "should have the h1 'Help Page' " do
-  		visit help_path
-  		page.should have_selector('h1' ,:text => 'Help Page')
-  	end
-
-    it "should have the title of 'Help Page' " do
-      visit help_path
-      page.should have_selector('title', :text => 'Help Page')
-    end
+  	before { visit help_path }
+    it { should have_selector('h1' ,:text => 'Help Page') }
+  	
+    it { should have_selector('title', text: full_title('')) }
+    
+    it { should have_selector('title', :text => '| Help Page') }
   end
 
   describe "About Us" do
-  	it "should have the h1 'About us'" do
-  		visit about_path
-  		page.should have_selector('h1', text: 'About Us')
-  	end
+  	before { visit about_path }
+    it { should have_selector('h1', text: 'About Us') }
+  	
+    it { should have_selector('title', text: full_title('')) }
+    
+    it { should have_selector('title', text: "| About Us") }
+  end
 
-    it "should have the title of 'About Us' " do
-      visit about_path
-      page.should have_selector('title', text: "About Us")
-    end
+  describe "Contact page" do
+    before { visit contact_path }
+    it { should have_selector('h1', text: "Contact") }
+       
+    it { should have_selector('title', text: full_title('')) }
+    
+    it { should have_selector('title', text: '| Contact Page') }
   end
 end
