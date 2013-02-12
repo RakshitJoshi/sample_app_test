@@ -1,4 +1,6 @@
 SampleAppTest::Application.routes.draw do
+
+  resources :users
   root to: 'static_pages#home'
   match "signup" => 'users#new', as: :signup
   match "home" => 'static_pages#home', as: :home
